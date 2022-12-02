@@ -4,7 +4,7 @@ A revolutionary way to advertise.
 ## For developers of the project
 Welcome and thank you for helping us out!
 
-- We'll be using MERN stack (MongoDB, Express, ReactJS, NodeJS) for the website portion of this project
+- We'll be using MongoDB, Express, NodeJS for the website portion of this project
 - Please leave comments on each function
 - The discord bot will be developed using Discord.JS
 - All code must be maintainable (please)
