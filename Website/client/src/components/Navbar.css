@@ -1,0 +1,35 @@
+#NavBar {
+    height: 100px;
+    width: 100%;
+    display: flex;
+}
+
+#logo {
+    padding: 20px;
+}
+
+#logo img {
+    max-height: 60px;
+}
+
+.NavBarLinks {
+    flex: 4;
+}
+
+.NavBarAccount {
+    flex: 2;
+}
+
+.NavBarLogo {
+    flex: 4;
+}
+
+.NavBarElement {/*
+    line-height: 100px;*/
+}
+
+.AccountPhoto {
+    border: 2px solid gray;
+    height: 30px;
+    width: 30px;
+}

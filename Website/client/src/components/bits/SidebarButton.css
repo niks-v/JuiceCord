@@ -1,0 +1,12 @@
+.SidebarButton {
+    padding: 20px;
+    font-size: 20px;
+    background-color: white;
+    width: calc(200%-40px);
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.SidebarButton:hover {
+    background-color: rgb(240, 240, 240);
+}

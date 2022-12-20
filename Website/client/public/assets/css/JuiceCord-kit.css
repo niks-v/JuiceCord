@@ -1,0 +1,33 @@
+.shadow {
+    box-shadow: 0px 0px 7px 0px rgba(145,145,145,1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+}
+
+.center > * {
+    margin: auto;
+}
+
+.circle {
+    border-radius: 50%;
+}

@@ -1,0 +1,9 @@
+.sideContainer {
+    height: 100px;
+    flex: 6;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
