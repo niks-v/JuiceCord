@@ -11,4 +11,7 @@ Welcome and thank you for helping us out!
 - If you use any dependencies or external libraries please add them to the list below:
 
 The list below:
-- ...
+- React -> Website/client
+- MongoDB -> Website/server
+- Mongoose -> Website/server
+- 
