@@ -16,7 +16,8 @@ import Servers from "./pages/Servers";
 import ControlPanel from "./pages/ControlPanel";
 import Funds from "./pages/Funds";
 
-//TODO route proxy requests for api - "proxy": "http://localhost:3001", in package,json
+//TODO route proxy requests for api - "proxy": "http://localhost:3001", in package,json 
+//TODO use .env
 
 
 export default function App() {

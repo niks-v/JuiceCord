@@ -1,18 +1,19 @@
-let AccountLogic = (inp) => {
-    this.create = (inp) => {
-
-    }
-    this.login = (inp) => {
-
-    }
-    this.forgotPass = (inp) => {
-
-    }
-    this.delete = (inp) => {
-
-    }
-    this.logout = (inp) => {
-        
+let AccountLogic = {
+    "create" : (req, res) => {
+        return { "action": "createssss", "otherparam": "thisvalue" }
+    },
+    "login" : (req, res) => {
+        console.log("got login");
+        return "test";
+    },
+    "forgotPass" : (req, res) => {
+        return { "action" : "forgot pass" };
+    },
+    "delete" : (req, res) => {
+        return { "action": "delete" }
+    },
+    "logout" : (req, res) => {
+        return { "action": "logout" }
     }
 }
 

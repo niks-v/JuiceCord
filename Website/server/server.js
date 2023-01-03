@@ -6,6 +6,12 @@ app.listen(port, ()=> {
     console.log(`Server started on port: ${port}`)
 })
 
-app.get('/api', (req, res) => {
-    res.json({"users": ["test123", "test323134", "another user"]})
+const Account = require("./routes/Account");
+app.get('/api/account/:action', (req, res) => {
+    res.json(Account(req,res));
+})
+
+const Affiliates = require("./routes/Affiliates");
+app.get('/api/affiliates/:action', (req, res) => {
+    res.json(Affiliates(req,res));
 })
