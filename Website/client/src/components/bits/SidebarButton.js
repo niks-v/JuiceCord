@@ -7,7 +7,7 @@ function SidebarButton(props) {
 
     return (
         <a className="" href={link}>
-            <div className="SidebarButton shadow">
+            <div className="SidebarButton">
                 <div className="text">
                     <span>{text}</span>
                 </div>

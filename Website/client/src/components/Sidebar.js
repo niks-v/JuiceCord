@@ -8,7 +8,7 @@ function Sidebar() {
       <SidebarButton text="Affiliate Links" icon="home-alt" link="/a/affiliatelink"/>
       <SidebarButton text="Servers" icon="home-alt" link="/a/servers"/>
       <SidebarButton text="Funds" icon="home-alt" link="/a/funds"/>
-      <SidebarButton text="Control Panel" icon="home-alt" link="/a/controlpanel"/>
+      <SidebarButton text="Control Panel" icon="home-alt" link="/a/controlpanel" className="bottom"/>
     </div>
   )
 }

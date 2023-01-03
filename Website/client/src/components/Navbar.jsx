@@ -2,7 +2,7 @@ import './Navbar.css'
 
 function Navbar() {
   return (
-    <div id="NavBar" className="shadow">
+    <div id="NavBar" className="bottom">
       <div className="NavBarElement NavBarLogo">
         <div id="logo">
           <a href="/">
