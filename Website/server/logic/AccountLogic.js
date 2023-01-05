@@ -1,6 +1,14 @@
+const DB = require("../database/Actions");
+const crypto = require('crypto')
+
 let AccountLogic = {
-    "create" : (req, res) => {
+    "create": async (req, res) => {
+        let password = "";
+        //DB.account.create()
+        let pwhash = crypto.createHash('md5').update(password).digest("hex");
+        console.log(req)
         return { "action": "createssss", "otherparam": "thisvalue" }
+
     },
     "login" : (req, res) => {
         console.log("got login");

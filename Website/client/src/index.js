@@ -6,6 +6,7 @@ import './App.css'
 //Import pages for layout
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
+import Signup from "./pages/Signup";
 import NoPage from "./pages/NoPage";
 
 //Import pages for AppLayout
@@ -34,6 +35,7 @@ export default function App() {
     </Route>
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
+      <Route path="signup" element={<Signup />} />
       <Route path="*" element={<NoPage />} />
     </Route>
     </Routes>

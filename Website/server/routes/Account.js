@@ -1,12 +1,12 @@
 const Acc = require("../logic/AccountLogic");
 
-let Account = (req, res, type) => {
+let Account = async (req, res, type) => {
     let p = req.params.action;
 
     if(type == "get"){
         switch (p) {
             case "logout":
-                return Acc.logout(req, res);
+                return await Acc.logout(req, res);
 
             default:
                 return { "err": true, "info": "No route for account action."};
@@ -15,16 +15,16 @@ let Account = (req, res, type) => {
     else if(type == "post") {
         switch (p) {
             case "create":
-                return Acc.create(req, res);
+                return await Acc.create(req, res);
     
             case "delete":
-                return Acc.delete(req, res);
+                return await Acc.delete(req, res);
     
             case "forgotpass":
-                return Acc.forgotPass(req, res);
+                return await Acc.forgotPass(req, res);
     
             case "login":
-                return Acc.login(req, res);
+                return await Acc.login(req, res);
     
             default:
                 return { "err": true, "info": "No route for account action."};

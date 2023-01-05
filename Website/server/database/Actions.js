@@ -25,6 +25,15 @@ let DB = {
         Account.create({firstName: "test", lastName: "jones"})
         const accounts = await Account.findAll();
         console.log(accounts);
+    },
+    "drop": async () => {
+        await Account.drop();
+        console.log("User table dropped!");
+    },
+    "account": {
+        create: async (email, password, type, sessionid) => {
+            Account.create({email: email, password: password, type: type, sessionid: sessionid})
+        }
     }
 }
 
