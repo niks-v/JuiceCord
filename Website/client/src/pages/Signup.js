@@ -15,12 +15,14 @@ function Signup() {
         console.log(data);
         e.preventDefault();
         try {
-        let res = await fetch("api/account/create", {
+        let res = await fetch("/api/account/create", {
             headers: {'Content-Type':'application/json'},
             method: "POST",
             body: data,
         });
-        let resJson = await res.json();
+        let resJson = await res.json().then( res => {
+            console.log(res);
+        } )
         if (res.status === 200) {
             setPassword("");
             setEmail("");

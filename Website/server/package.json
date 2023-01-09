@@ -4,8 +4,8 @@
   "description": "API for juicecord",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon . --ignore client",
-    "start": "node . --ignore client"
+    "test": "nodemon .",
+    "start": "node ."
   },
   "repository": {
     "type": "git",

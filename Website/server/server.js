@@ -1,25 +1,27 @@
 const express = require('express');
-const config = require('dotenv').config();
+const config = require('dotenv').config().parsed;
 const app = express();
-const port = 3001; //TODO move port to .env
-const cors = require('cors');
+const port = config.SERVERPORT;
 
 app.listen(config.SERVERPORT, ()=> {
     console.log(`Server started on port: ${port}`)
 })
-app.use(cors({
-    origin: 'http://localhost:3000'
-}));
+
+app.use(express.json())
 
 // ROUTES
 
 //Account route - /api/account/*
 const Account = require("./routes/Account");
 app.get('/api/account/:action', async (req, res) => {
-    res.json(await Account(req, res, "get"));
+    res.json(Account(req, res, "get"));
 })
 app.post('/api/account/:action', async (req, res) => {
-    res.json(await Account(req, res, "post"));
+    Account(req, res, "post").then(json => {
+        console.log(json);
+        res.json(json);
+    })
+    
 })
 
 

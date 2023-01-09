@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       unique: true
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     discord: {
@@ -26,7 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     sessionid: {
       type: DataTypes.STRING
+    },
+    sessionexpiration: {
+      type: DataTypes.INTEGER
     }
+    
   },
   {
     timestamps: true,

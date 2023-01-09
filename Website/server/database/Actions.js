@@ -11,29 +11,52 @@ const sequelize = new Sequelize(`${config.DATABASENAME}`, `${config.DATABASEUSER
 
 
 const Account = require("./models/AccountModel")(sequelize, DataTypes);
+const Tools = require("../tools");
+const { createSessionExpiration } = require('../tools');
 
 sequelize.sync();
 
 let DB = {
-    "test": async () => {
-        try {
-            await sequelize.authenticate();
-            console.log('Connection has been established successfully.');
-        } catch (error) {
-            console.error('Unable to connect to the database:', error);
-        }
-        Account.create({firstName: "test", lastName: "jones"})
-        const accounts = await Account.findAll();
-        console.log(accounts);
-    },
-    "drop": async () => {
-        await Account.drop();
-        console.log("User table dropped!");
-    },
     "account": {
-        create: async (email, password, type, sessionid) => {
-            Account.create({email: email, password: password, type: type, sessionid: sessionid})
+        create: async (email, password, type) => {
+            console.log(email, password, type)
+            Account.findOne({ where: { email: email } }).then(async acc=>{
+                console.log("tried findone")
+                if (!acc) {
+                    console.log("account find one " + acc)
+                    //console.log(returnval);
+                    return new Promise((res, rej) => {
+                        res(Account.create({email: email, password: password, type: type}))
+                    })
+                }
+                else {
+                    throw new Error("Email already registered");
+                }
+            })
+        },
+        lookup: async (email, password) => {
+            let returnval = await Account.findOne({ where: { email: email, password: password } });
+            console.log(returnval)
+            return returnval;
+        },
+        setSessionToken: async (email, password) => {
+            let sessionid = Tools.createSessionId()
+            Account.update(
+                { sessionid: sessionid, sessionexpiration: Tools.createSessionExpiration() },
+
+                { where: { email: email, password: password } }
+            ).success(result => {
+                return sessionid;
+            }
+            ).error(err => {
+                return {"error": true, "message": "Account update sessionid and expiration didn't work."}
+            }
+            )
         }
+    },
+    sync: ()=>
+    {
+        Account.sync({ force: true })
     }
 }
 
