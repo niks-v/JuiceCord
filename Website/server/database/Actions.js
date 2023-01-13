@@ -25,7 +25,7 @@ let DB = {
                     return await Account.create({email: email, password: password, type: type})
                 }
                 else {
-                    throw new Error("Email already registered");
+                    return {error: true, message: "Email already registered"};
                 }
             })
         },

@@ -24,12 +24,16 @@
     flex: 4;
 }
 
-.NavBarElement {/*
-    line-height: 100px;*/
+.NavBarElement {
+    display: flex;
+    align-items: center;
 }
 
 .AccountPhoto {
-    border: 2px solid gray;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+}
+
+.AccountPhoto:hover{
+    opacity: 0.8;
 }

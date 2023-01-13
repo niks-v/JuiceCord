@@ -2,7 +2,7 @@ import "./page-styles/Signup.css"
 import React, { useState } from 'react';
 import Cookies from "../components/tools/Cookies";
 
-function Signup() {
+function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -10,21 +10,20 @@ function Signup() {
     let SubmitAccountData = async (e) => {
         let data = JSON.stringify({
             email: email,
-            password: password,
-            type: "user",
+            password: password
         })
         console.log(data);
         e.preventDefault();
         try {
-        let res = await fetch("/api/account/create", {
+        let res = await fetch("/api/account/login", {
             headers: {'Content-Type':'application/json'},
             method: "POST",
             body: data,
         });
         let resJson = await res.json().then( res => {
-            console.log(res);
             if(!res.error){
                 Cookies.setCookie("sessionid", res.sessionid, 1);
+    
                 window.location.href = 'a/dashboard';
             }
             else {
@@ -36,7 +35,7 @@ function Signup() {
             setEmail("");
             // get token and redirect
         } else {
-            console.log("An error occured while signing up.");
+            console.log("An error occured while logging in.");
         }
         } catch (err) {
             console.log(err);
@@ -65,10 +64,10 @@ function Signup() {
               onChange={(e) => setPassword(e.target.value)}
               ></input>
 
-              <button type="submit">Create account</button>
+              <button type="submit">Login</button>
           </form>
       </>
     )
 }
 
-export default Signup
+export default Login

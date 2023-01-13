@@ -14,7 +14,7 @@ function Navbar() {
         Test
       </div>
       <div className="NavBarElement NavBarAccount text-center">
-        <div className="AccountPhoto circle">s</div>
+        <div className="AccountPhoto circle pointer" style={{backgroundImage:"url('./assets/img/account.webp')",backgroundSize:"cover", width:"40px", height:"40px"}}></div>
       </div>
     </div>
   )

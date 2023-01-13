@@ -3,8 +3,16 @@ import "./page-styles/Home.css"
 function Home() {
   return (
     <>
-      <a href="/a/dashboard">Dashboard (click me)</a>
-      <a href="/signup">Signup (click me)</a>
+      <div>
+        <a href="/a/dashboard">Dashboard (click me)</a>
+      </div>
+      <div>
+        <a href="/signup">Signup (click me)</a>
+      </div>
+      <div>
+        <a href="/login">Login (click me)</a>
+      </div>
+      
     </>
   )
 }

@@ -4,7 +4,7 @@ const Tools = require("../tools");
 let login = async (email, pass) => {
     return await DB.account.lookup({ email: email, pass: pass }).then( async acc => {
         if (!acc) {
-            console.log("TROUBLE LOGGING IN ----------------- No account")
+            console.log("TROUBLE LOGGING IN ----------------- No account or password incorrect")
             return {"error": true, "message": "Incorrect username or password"}
         }
         else {
@@ -23,11 +23,12 @@ let AccountLogic = {
 
             return await DB.account.create(email, pwhash, type).then(async acc => {
                 try {
-                    return {sessionid: await login(acc.dataValues.email, acc.dataValues.password)}
+                    if(!acc.error) return {sessionid: await login(acc.dataValues.email, acc.dataValues.password)}
+                    return acc;
                 }
                 catch (err) {
                     console.log(err);
-                    return err;
+                    return {"error": true, "message": "There was an error creating the account."}
                 }
             })
         }
