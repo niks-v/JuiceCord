@@ -9,8 +9,8 @@ let Tools = {
         return expiration < date;
     },
     createSessionId: (date = Date.now()) => {
-        let toGenerate = this.getRandomArbitrary(1000000000000, 10000000000000000000000000) + date;
-        return this.md5(toGenerate);
+        let toGenerate = Tools.getRandomArbitrary(1000000000000, 10000000000000000000000000) + date;
+        return Tools.md5(toGenerate);
     },
     getRandomArbitrary: (min, max) => {
         return Math.random() * (max - min) + min;

@@ -14,14 +14,11 @@ app.use(express.json())
 //Account route - /api/account/*
 const Account = require("./routes/Account");
 app.get('/api/account/:action', async (req, res) => {
-    res.json(Account(req, res, "get"));
+    res.json(await Account(req, res, "get"));
 })
+
 app.post('/api/account/:action', async (req, res) => {
-    Account(req, res, "post").then(json => {
-        console.log(json);
-        res.json(json);
-    })
-    
+    res.json(await Account(req, res, "post"));
 })
 
 

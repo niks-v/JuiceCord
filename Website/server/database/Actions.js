@@ -20,37 +20,29 @@ let DB = {
     "account": {
         create: async (email, password, type) => {
             console.log(email, password, type)
-            Account.findOne({ where: { email: email } }).then(async acc=>{
-                console.log("tried findone")
+            return await Account.findOne({ where: { email: email } }).then(async acc=>{
                 if (!acc) {
-                    console.log("account find one " + acc)
-                    //console.log(returnval);
-                    return new Promise((res, rej) => {
-                        res(Account.create({email: email, password: password, type: type}))
-                    })
+                    return await Account.create({email: email, password: password, type: type})
                 }
                 else {
                     throw new Error("Email already registered");
                 }
             })
         },
-        lookup: async (email, password) => {
-            let returnval = await Account.findOne({ where: { email: email, password: password } });
+        lookup: async (acc) => {
+            let returnval = await Account.findOne({ where: {password: acc.pass, email: acc.email } });
             console.log(returnval)
             return returnval;
         },
         setSessionToken: async (email, password) => {
             let sessionid = Tools.createSessionId()
-            Account.update(
+            
+            return await Account.update(
                 { sessionid: sessionid, sessionexpiration: Tools.createSessionExpiration() },
-
                 { where: { email: email, password: password } }
-            ).success(result => {
-                return sessionid;
-            }
-            ).error(err => {
-                return {"error": true, "message": "Account update sessionid and expiration didn't work."}
-            }
+            ).then(() => {
+                    return sessionid;
+                }
             )
         }
     },
