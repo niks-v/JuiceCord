@@ -6,6 +6,7 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
 
     let SubmitAccountData = async (e) => {
         let data = JSON.stringify({
@@ -28,6 +29,7 @@ function Login() {
             }
             else {
                 console.log(res.message);
+                setMessage(res.message);
             }
         } )
         if (res.status === 200) {
@@ -42,31 +44,31 @@ function Login() {
         }
     }
     return (
-      <>
-          Sign up:
+      <div className="LoginForm form">
+        <h1>Log In:</h1><br></br>
           <form onSubmit={SubmitAccountData}>
-              <label>Email:</label>
               <input 
               name="email" 
               id="email" 
               placeholder="Email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              ></input>
+              ></input><br></br>
 
-              <label>Password:</label>
               <input 
               name="password"
               type="password" 
               id="password" 
-              placeholder="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              ></input>
+              ></input><br></br>
 
               <button type="submit">Login</button>
+
+              <div id="MessageBox">{message}</div>
           </form>
-      </>
+      </div>
     )
 }
 

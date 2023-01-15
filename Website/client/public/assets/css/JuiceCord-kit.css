@@ -39,3 +39,75 @@ a {
 .pointer {
     cursor: pointer;
 }
+
+.hover-ul {
+    display: inline-block;
+    position: relative;
+    color: black;
+}
+
+.hover-ul::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FEA400;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-ul:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+#MessageBox {
+    color: rgb(200, 88, 88);
+}
+
+.form {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form input {
+    width: 100%;
+    max-width: 300px;
+}
+
+input {
+    border: 1px solid rgb(161, 161, 161);
+    height: 30px;
+    line-height: 25px;
+    background-color: #fff;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid rgb(161, 161, 161);
+    border-left: 2px solid #FEA400;
+}
+
+.form button {
+    width: 100%;
+    max-width: 150px;
+    height: 30px;
+    background-color: #FEA400;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form button:hover {
+    opacity: 0.8;
+}
+
+.form * {
+    margin-bottom: 10px;
+}

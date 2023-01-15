@@ -13,15 +13,20 @@
 }
 
 .NavBarLinks {
-    flex: 4;
+    flex: 2;
 }
 
 .NavBarAccount {
     flex: 2;
+    justify-content: space-around;
 }
 
 .NavBarLogo {
     flex: 4;
+}
+
+.NavBarLinks {
+    justify-content: space-around;
 }
 
 .NavBarElement {
