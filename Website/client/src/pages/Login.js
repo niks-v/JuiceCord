@@ -21,7 +21,7 @@ function Login() {
             method: "POST",
             body: data,
         });
-        let resJson = await res.json().then( res => {
+        await res.json().then( res => {
             if(!res.error){
                 Cookies.setCookie("sessionid", res, 1);
                 window.location.href = 'a/dashboard';

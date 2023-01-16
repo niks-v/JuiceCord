@@ -111,3 +111,9 @@ input:focus {
 .form * {
     margin-bottom: 10px;
 }
+
+.small {
+    font-size: 10px;
+    margin-bottom: 0px;
+    color: rgb(73, 73, 73);
+}

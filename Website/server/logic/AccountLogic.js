@@ -14,10 +14,11 @@ let AccountLogic = {
             let password = req.body.password;
             let pwhash = Tools.md5(password);
             let email = req.body.email;
+            let affiliate = req.body.affiliate;
             let type = req.body.type == "user" ? "user" 
                      : req.body.type == "advertiser" ? "advertiser" : "error";
 
-            return await DB.account.create(email, pwhash, type).then(async acc => {
+            return await DB.account.create(email, pwhash, type, affiliate).then(async acc => {
                 try {
                     if(!acc.error) return {sessionid: await login(acc.dataValues.email, acc.dataValues.password)}
                     return acc;

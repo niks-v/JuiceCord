@@ -20,11 +20,11 @@ sequelize.sync();
 
 let DB = {
     "account": {
-        "create": async (email, password, type) => {
-            console.log(email, password, type)
+        "create": async (email, password, type, affiliate) => {
+            console.log(email, password, type, affiliate)
             return await Account.findOne({ where: { email: email } }).then(async acc=>{
                 if (!acc) {
-                    return await Account.create({email: email, password: password, type: type})
+                    return await Account.create({email: email, password: password, type: type, affiliate: affiliate})
                 }
                 else {
                     return {error: true, message: "Email already registered"};

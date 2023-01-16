@@ -1,10 +1,10 @@
 import "./page-styles/AffiliateLink.css";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, /*useState*/ } from 'react';
 import Cookies from "../components/tools/Cookies";
 
 function AffiliateLink() {
 
-    let [ backendData, setBackendData ] = useState([{}]);
+    //let [ backendData, setBackendData ] = useState([{}]);
 
     useEffect(()=> {
         fetch("/api/affiliates/list", {
@@ -16,12 +16,12 @@ function AffiliateLink() {
         ).then(
             data => {
                 console.log(data);
-                setBackendData(data);
+                //setBackendData(data);
             }
         )
     }, [])
 
-    function createAffiliateLink(name){
+    /*function createAffiliateLink(name){
         fetch("/api/affiliates/create", {
             headers: {'Content-Type':'application/json'},
             method: "POST",
@@ -31,10 +31,10 @@ function AffiliateLink() {
         ).then(
             data => {
                 console.log(data);
-                setBackendData(data);
+                //setBackendData(data);
             }
         )
-    }
+    }*/
 
     return (
         <div>

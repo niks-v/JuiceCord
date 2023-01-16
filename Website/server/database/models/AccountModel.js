@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     discord: {
       type: DataTypes.STRING
     },
+    affiliate: {
+      type: DataTypes.TEXT,
+    },
     type: {
       type: DataTypes.STRING,
       allowNull: false
