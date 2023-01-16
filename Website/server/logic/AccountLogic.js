@@ -3,13 +3,8 @@ const Tools = require("../tools");
 
 let login = async (email, pass) => {
     return await DB.account.lookup({ email: email, pass: pass }).then( async acc => {
-        if (!acc) {
-            console.log("TROUBLE LOGGING IN ----------------- No account or password incorrect")
-            return {"error": true, "message": "Incorrect username or password"}
-        }
-        else {
-            return await DB.account.setSessionToken(email, pass);
-        }
+        if (!acc) return {"error": true, "message": "Incorrect username or password"}
+        return await DB.account.setSessionToken(email, pass);
     })
 }
 
@@ -19,7 +14,8 @@ let AccountLogic = {
             let password = req.body.password;
             let pwhash = Tools.md5(password);
             let email = req.body.email;
-            let type = req.body.type == "user" ? "user" : req.body.type == "advertiser" ? "advertiser" : "error";
+            let type = req.body.type == "user" ? "user" 
+                     : req.body.type == "advertiser" ? "advertiser" : "error";
 
             return await DB.account.create(email, pwhash, type).then(async acc => {
                 try {
