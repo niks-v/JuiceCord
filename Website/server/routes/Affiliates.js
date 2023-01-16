@@ -1,29 +1,19 @@
 const Aff = require("../logic/AffiliateLogic");
 
-let Affiliates = (req, res, type) => {
+let Affiliates = async (req, res, type) => {
     let p = req.params.action;
+    console.log(p);
 
-    if(type == "get") {
-        switch (p) {
-            case "delete":
-                return Aff.delete(req, res);
-
-            case "return-all":
-                return Aff.returnall(req, res);
-
-            default:
-                return { "err": true, "info": "No route for affiliate action."};
-        }
-    }else if(type == "post") {
-        switch (p) {
-            case "create":
-                return Aff.create(req, res);
-
-            default:
-                return { "err": true, "info": "No route for affiliate action."};
-        }
+    if(type == "get"){
+        if(p == "delete")           return await Aff.delete(req,res);
+        else                        return { "err": true, "info": "No route for affiliate action."};  
     }
-    
+    if(type == "post") {
+        if(p == "create")           return await Aff.create(req, res);
+        if(p == "list")             return await Aff.list(req,res);
+        else                        return { "err": true, "info": "No route for affiliate action."};
+    }
+    else                            return { "err": true, "info": "No route for affiliate action."};
 }
 
 module.exports = Affiliates;

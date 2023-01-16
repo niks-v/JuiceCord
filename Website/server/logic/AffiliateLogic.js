@@ -1,12 +1,15 @@
+const DB = require("../database/Actions");
+const Tools = require("../tools");
+
 let AffiliateLogic = {
-    "create" : (req, res) => {
-        return { "action": "create affiliate link"}
+    "create" : async (req, res) => {
+        return await DB.affiliate.create(req.body.sessionid, req.body.name);
     },
     "delete" : (req, res) => {
         return { "action": "delete affiliate link" }
     },
-    "returnall" : (req, res) => {
-        return { "action": "return all affiliate links" }
+    "list" : async (req, res) => {
+        return await DB.affiliate.list(req.body.sessionid);
     }
 }
 

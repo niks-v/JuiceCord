@@ -23,8 +23,7 @@ function Login() {
         });
         let resJson = await res.json().then( res => {
             if(!res.error){
-                Cookies.setCookie("sessionid", res.sessionid, 1);
-    
+                Cookies.setCookie("sessionid", res, 1);
                 window.location.href = 'a/dashboard';
             }
             else {
