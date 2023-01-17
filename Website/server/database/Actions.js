@@ -73,9 +73,10 @@ let DB = {
             
         }
     },
-    "sync": ()=>
+    "drop": ()=>
     {
-        Account.sync({ force: true })
+        Account.drop({ force: true })
+        Affiliate.drop({ force: true })
     }
 }
 

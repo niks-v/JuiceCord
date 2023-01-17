@@ -24,6 +24,7 @@ function Login() {
         await res.json().then( res => {
             if(!res.error){
                 Cookies.setCookie("sessionid", res, 1);
+                Cookies.setCookie("loggedin", true, 1);
                 window.location.href = 'a/dashboard';
             }
             else {

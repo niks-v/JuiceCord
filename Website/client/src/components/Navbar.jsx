@@ -1,7 +1,10 @@
 import './Navbar.css'
 import LinkButton from './bits/LinkButton'
-
+import Cookies from "../components/tools/Cookies";
 function Navbar() {
+  let loggedin = Cookies.getCookie("loggedin");
+
+
   return (
     <div id="NavBar" className="bottom">
       <div className="NavBarElement NavBarLogo">
@@ -11,15 +14,11 @@ function Navbar() {
           </a>
         </div>
       </div>
-      <div className="NavBarElement NavBarLinks text-center">
-        <LinkButton text="Dashboard" link="/a/dashboard" /> 
-        <LinkButton text="Login" link="/login" />
-        <LinkButton text="Sign Up" link="/signup" />
+      <div className="NavBarElement NavBarLinks text-center"> 
+        {!loggedin ? (<><LinkButton text="Login" link="/login" /><LinkButton text="Sign Up" link="/signup" /></>) : (<><LinkButton text="Dashboard" link="/a/dashboard" /> <LinkButton text="Logout" link="/logout" /></>)}
+        
         <LinkButton text="About" link="/about" />
         <LinkButton text="Advertise" link="/advertise" />
-      </div>
-      <div className="NavBarElement NavBarAccount text-center">
-        <div className="AccountPhoto circle pointer" style={{backgroundImage:"url('./assets/img/account.webp')",backgroundSize:"cover", width:"40px", height:"40px"}}></div>
       </div>
     </div>
   )

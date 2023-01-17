@@ -32,3 +32,5 @@ app.post('/api/affiliates/:action', async (req, res) => {
 })
 
 const DB = require("./database/Actions");
+
+//DB.drop();
